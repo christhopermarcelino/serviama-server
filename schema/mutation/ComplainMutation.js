@@ -1,6 +1,6 @@
 const { GraphQLString, GraphQLNonNull, GraphQLInt } = require("graphql");
-const { ComplainStatusEnum } = require("../../model/ComplainType");
-const UserType = require("../../model/UserType");
+const { ComplainStatusEnum } = require("../typedef/ComplainType");
+const UserType = require("../typedef/UserType");
 
 const createComplain = {
   name: "createComplain",

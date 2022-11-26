@@ -1,6 +1,6 @@
 const { GraphQLNonNull, GraphQLInt } = require("graphql");
-const { GallonOrderStatusEnum } = require("../../model/GallonOrderType");
-const UserType = require("../../model/UserType");
+const { GallonOrderStatusEnum } = require("../typedef/GallonOrderType");
+const UserType = require("../typedef/UserType");
 
 const createGallonOrder = {
   name: "createGallonOrder",

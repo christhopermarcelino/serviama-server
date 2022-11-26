@@ -1,6 +1,6 @@
 const { GraphQLList, GraphQLInt } = require("graphql");
 
-const { PacketType } = require("../../model/PacketType");
+const { PacketType } = require("../typedef/PacketType");
 
 const packets = {
   type: new GraphQLList(PacketType),

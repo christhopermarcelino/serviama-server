@@ -1,6 +1,6 @@
 const { GraphQLList, GraphQLInt } = require("graphql");
 
-const { GallonOrderType } = require("../../model/GallonOrderType");
+const { GallonOrderType } = require("../typedef/GallonOrderType");
 
 const gallonOrders = {
   type: new GraphQLList(GallonOrderType),

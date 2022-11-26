@@ -1,10 +1,12 @@
 const { GraphQLList, GraphQLInt, GraphQLString } = require("graphql");
 
-const UserType = require("../../model/UserType");
+const UserType = require("../typedef/UserType");
+
+const { getAllUsers, getUserById } = require("../../controller/UserController");
 
 const users = {
   type: new GraphQLList(UserType),
-  resolve: (parent, _) => [],
+  resolve: (parent, _) => getAllUsers(),
 };
 
 const user = {
@@ -12,7 +14,7 @@ const user = {
   args: {
     id: { type: GraphQLInt },
   },
-  resolve: (parent, args) => {},
+  resolve: (_, args) => getUserById(args.id),
 };
 
 module.exports = { users, user };

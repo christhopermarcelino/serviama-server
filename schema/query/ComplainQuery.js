@@ -1,6 +1,6 @@
 const { GraphQLList, GraphQLInt } = require("graphql");
 
-const { ComplainType } = require("../../model/ComplainType");
+const { ComplainType } = require("../typedef/ComplainType");
 
 const complains = {
   type: new GraphQLList(ComplainType),

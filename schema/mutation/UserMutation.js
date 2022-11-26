@@ -1,5 +1,5 @@
 const { GraphQLString, GraphQLNonNull, GraphQLInt } = require("graphql");
-const UserType = require("../../model/UserType");
+const UserType = require("../typedef/UserType");
 
 const createUser = {
   name: "createUser",

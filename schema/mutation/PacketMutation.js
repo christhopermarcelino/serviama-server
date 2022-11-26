@@ -1,6 +1,6 @@
 const { GraphQLString, GraphQLNonNull, GraphQLInt } = require("graphql");
-const { PacketStatusEnum } = require("../../model/PacketType");
-const UserType = require("../../model/UserType");
+const { PacketStatusEnum } = require("../typedef/PacketType");
+const UserType = require("../typedef/UserType");
 
 const createPacket = {
   name: "createPacket",
