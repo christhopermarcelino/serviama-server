@@ -2,12 +2,12 @@ const { GraphQLList, GraphQLInt } = require("graphql");
 
 const { ComplainType } = require("../../model/ComplainType");
 
-const getComplains = {
+const complains = {
   type: new GraphQLList(ComplainType),
   resolve: (parent, args) => {},
 };
 
-const getComplainById = {
+const complainById = {
   type: ComplainType,
   args: {
     id: { type: GraphQLInt },
@@ -15,7 +15,7 @@ const getComplainById = {
   resolve: (parent, args) => {},
 };
 
-const getComplainsByUserId = {
+const complainsByUserId = {
   type: new GraphQLList(ComplainType),
   args: {
     userId: { type: GraphQLInt },
@@ -24,7 +24,7 @@ const getComplainsByUserId = {
 };
 
 module.exports = {
-  getComplains,
-  getComplainById,
-  getComplainsByUserId,
+  complains,
+  complainById,
+  complainsByUserId,
 };

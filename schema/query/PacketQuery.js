@@ -2,12 +2,12 @@ const { GraphQLList, GraphQLInt } = require("graphql");
 
 const { PacketType } = require("../../model/PacketType");
 
-const getPackets = {
+const packets = {
   type: new GraphQLList(PacketType),
   resolve: (parent, args) => {},
 };
 
-const getPacketById = {
+const packetById = {
   type: PacketType,
   args: {
     id: { type: GraphQLInt },
@@ -15,7 +15,7 @@ const getPacketById = {
   resolve: (parent, args) => {},
 };
 
-const getPacketsByUserId = {
+const packetsByUserId = {
   type: new GraphQLList(PacketType),
   args: {
     userId: { type: GraphQLInt },
@@ -23,4 +23,4 @@ const getPacketsByUserId = {
   resolve: (parent, args) => {},
 };
 
-module.exports = { getPackets, getPacketById, getPacketsByUserId };
+module.exports = { packets, packetById, packetsByUserId };

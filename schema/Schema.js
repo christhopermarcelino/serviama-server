@@ -1,21 +1,21 @@
 const { GraphQLSchema, GraphQLObjectType } = require("graphql");
 
-const { getUsers, getUserById } = require("./query/UserQuery");
-const { getGallons, getGallonById } = require("./query/GallonQuery");
+const { users, user } = require("./query/UserQuery");
+const { gallons, gallon } = require("./query/GallonQuery");
 const {
-  getGallonOrders,
-  getGallonOrderById,
-  getGallonOrdersByUserId,
+  gallonOrders,
+  gallonOrderById,
+  gallonOrdersByUserId,
 } = require("./query/GallonOrderQuery");
 const {
-  getComplains,
-  getComplainById,
-  getComplainsByUserId,
+  complains,
+  complainById,
+  complainsByUserId,
 } = require("./query/ComplainQuery");
 const {
-  getPackets,
-  getPacketById,
-  getPacketsByUserId,
+  packets,
+  packetById,
+  packetsByUserId,
 } = require("./query/PacketQuery");
 
 const {
@@ -47,19 +47,19 @@ const {
 const rootQuery = new GraphQLObjectType({
   name: "RootQuery",
   fields: {
-    getUsers,
-    getUserById,
-    getGallons,
-    getGallonById,
-    getGallonOrders,
-    getGallonOrderById,
-    getGallonOrdersByUserId,
-    getComplains,
-    getComplainById,
-    getComplainsByUserId,
-    getPackets,
-    getPacketById,
-    getPacketsByUserId,
+    users,
+    user,
+    // gallons,
+    // gallon,
+    // gallonOrders,
+    // gallonOrderById,
+    // gallonOrdersByUserId,
+    // complains,
+    // complainById,
+    // complainsByUserId,
+    // packets,
+    // packetById,
+    // packetsByUserId,
   },
 });
 
@@ -67,20 +67,20 @@ const rootMutation = new GraphQLObjectType({
   name: "RootMutation",
   fields: {
     createUser,
-    updateUserById,
-    deleteUserById,
-    createGallon,
-    updateGallonById,
-    deleteGallonById,
-    createGallonOrder,
-    updateGallonOrderById,
-    deleteGallonOrderById,
-    createComplain,
-    updateComplainById,
-    deleteComplainById,
-    createPacket,
-    updatePacketById,
-    deletePacketById,
+    // updateUserById,
+    // deleteUserById,
+    // createGallon,
+    // updateGallonById,
+    // deleteGallonById,
+    // createGallonOrder,
+    // updateGallonOrderById,
+    // deleteGallonOrderById,
+    // createComplain,
+    // updateComplainById,
+    // deleteComplainById,
+    // createPacket,
+    // updatePacketById,
+    // deletePacketById,
   },
 });
 
