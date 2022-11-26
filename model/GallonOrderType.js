@@ -1,7 +1,6 @@
 const {
   GraphQLObjectType,
   GraphQLInt,
-  GraphQLString,
   GraphQLNonNull,
   GraphQLEnumType,
 } = require("graphql");
@@ -18,11 +17,11 @@ const GallonOrderStatusEnum = new GraphQLEnumType({
 const GallonOrderType = new GraphQLObjectType({
   name: "gallon_order",
   fields: () => ({
-    id: { type: GraphQLNonNull(GraphQLInt) },
-    gallonId: { type: GraphQLNonNull(GraphQLInt) },
-    userId: { type: GraphQLNonNull(GraphQLInt) },
-    status: { type: GraphQLNonNull(GallonOrderStatusEnum) },
+    id: { type: new GraphQLNonNull(GraphQLInt) },
+    gallonId: { type: new GraphQLNonNull(GraphQLInt) },
+    userId: { type: new GraphQLNonNull(GraphQLInt) },
+    status: { type: new GraphQLNonNull(GallonOrderStatusEnum) },
   }),
 });
 
-module.export = GallonOrderType;
+module.exports = { GallonOrderType, GallonOrderStatusEnum };

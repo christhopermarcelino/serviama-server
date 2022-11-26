@@ -18,12 +18,12 @@ const ComplainStatusEnum = new GraphQLEnumType({
 const ComplainType = new GraphQLObjectType({
   name: "complain",
   fields: () => ({
-    id: { type: GraphQLNonNull(GraphQLInt) },
-    title: { type: GraphQLNonNull(GraphQLString) },
-    description: { type: GraphQLNonNull(GraphQLString) },
-    status: { type: GraphQLNonNull(ComplainStatusEnum) },
-    userId: { type: GraphQLNonNull(GraphQLInt) },
+    id: { type: new GraphQLNonNull(GraphQLInt) },
+    title: { type: new GraphQLNonNull(GraphQLString) },
+    description: { type: new GraphQLNonNull(GraphQLString) },
+    status: { type: new GraphQLNonNull(ComplainStatusEnum) },
+    userId: { type: new GraphQLNonNull(GraphQLInt) },
   }),
 });
 
-module.export = ComplainType;
+module.exports = { ComplainType, ComplainStatusEnum };

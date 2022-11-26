@@ -8,10 +8,10 @@ const {
 const GallonType = new GraphQLObjectType({
   name: "gallon",
   fields: () => ({
-    id: { type: GraphQLNonNull(GraphQLInt) },
-    brand: { type: GraphQLNonNull(GraphQLString) },
-    stock: { type: GraphQLNonNull(GraphQLInt) },
+    id: { type: new GraphQLNonNull(GraphQLInt) },
+    brand: { type: new GraphQLNonNull(GraphQLString) },
+    stock: { type: new GraphQLNonNull(GraphQLInt) },
   }),
 });
 
-module.export = GallonType;
+module.exports = GallonType;
