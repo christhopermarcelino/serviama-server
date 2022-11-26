@@ -8,7 +8,7 @@ const updatePacketById = (req, res) => {};
 
 const deletePacketById = (req, res) => {};
 
-module.export = {
+module.exports = {
   getPackets,
   getPacketById,
   createPacket,

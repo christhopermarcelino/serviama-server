@@ -8,7 +8,7 @@ const updateComplainById = (req, res) => {};
 
 const deleteComplainById = (req, res) => {};
 
-module.export = {
+module.exports = {
   getComplains,
   getComplainById,
   createComplain,

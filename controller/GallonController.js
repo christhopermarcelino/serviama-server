@@ -8,7 +8,7 @@ const updateGallonOrderById = (req, res) => {};
 
 const deleteGallonOrderById = (req, res) => {};
 
-module.export = {
+module.exports = {
   getGallonOrders,
   getGallonOrderById,
   createGallonOrder,
