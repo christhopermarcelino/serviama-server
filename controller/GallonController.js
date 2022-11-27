@@ -1,6 +1,6 @@
 const GallonUseCase = require("../usecase/GallonUseCase");
 
-const getGallons = async () => {
+const getAllGallons = async () => {
   return await GallonUseCase.getAllGallons();
 };
 
@@ -21,7 +21,7 @@ const deleteGallonById = async (id) => {
 };
 
 module.exports = {
-  getGallons,
+  getAllGallons,
   getGallonById,
   createGallon,
   updateGallonById,
