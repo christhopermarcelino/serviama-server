@@ -11,23 +11,22 @@ datasource db {
 }
 
 model User {
-  id  String @id @default(auto()) @map("_id") @db.ObjectId
-  nrp String
-  name String
+  id           String  @id @default(auto()) @map("_id") @db.ObjectId
+  nrp          String
+  name         String
   phone_number String?
-  email String
-  password String
+  email        String
+  password     String
 
   gallonOrders GallonOrder[]
-  complains Complain[]
-  packets Packet[]
-  
+  complains    Complain[]
+  packets      Packet[]
 
   @@map("users")
 }
 
 model Admin {
-  id  String @id @default(auto()) @map("_id") @db.ObjectId
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
   username String
   password String
 
@@ -35,32 +34,31 @@ model Admin {
 }
 
 model Gallon {
-  id  String @id @default(auto()) @map("_id") @db.ObjectId
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
   brand String
-  stock Int @default(0)
-  
+  stock Int    @default(0)
+
   gallonOrders GallonOrder[]
 
   @@map("gallons")
 }
 
 model Complain {
-  id  String @id @default(auto()) @map("_id") @db.ObjectId
-  title String
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
   description String?
-  status String 
-  userId String @db.ObjectId
+  status      String
+  userId      String  @db.ObjectId
 
   user User @relation(fields: [userId], references: [id])
-
 
   @@map("complains")
 }
 
 model Packet {
-  id  String @id @default(auto()) @map("_id") @db.ObjectId
-  brand String
-  stock Int @default(0)
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  brand  String
+  stock  Int    @default(0)
   userId String @db.ObjectId
 
   user User @relation(fields: [userId], references: [id])
@@ -69,14 +67,14 @@ model Packet {
 }
 
 model GallonOrder {
-  id  String @id @default(auto()) @map("_id") @db.ObjectId
-  userId String @db.ObjectId
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  userId   String @db.ObjectId
   gallonId String @db.ObjectId
 
-  user User @relation(fields: [userId], references: [id])
+  user   User   @relation(fields: [userId], references: [id])
   gallon Gallon @relation(fields: [gallonId], references: [id])
 
-  @@map("gallonorders")
+  @@map("gallon_orders")
 }
 
 enum ComplainStatus {
