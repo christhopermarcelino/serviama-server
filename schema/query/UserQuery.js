@@ -1,4 +1,10 @@
-const { GraphQLList, GraphQLInt, GraphQLString } = require("graphql");
+const {
+  GraphQLList,
+  GraphQLInt,
+  GraphQLString,
+  GraphQLID,
+  GraphQLNonNull,
+} = require("graphql");
 
 const UserType = require("../typedef/UserType");
 
@@ -12,7 +18,7 @@ const users = {
 const user = {
   type: UserType,
   args: {
-    id: { type: GraphQLInt },
+    id: { type: new GraphQLNonNull(GraphQLID) },
   },
   resolve: (_, args) => getUserById(args.id),
 };
