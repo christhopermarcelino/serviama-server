@@ -3,7 +3,14 @@ const {
   GraphQLInt,
   GraphQLNonNull,
   GraphQLEnumType,
+  GraphQLID,
 } = require("graphql");
+
+const GALLONORDER_STATUS_ENUM = {
+  WAITING: 0,
+  IN_PROGRESS: 1,
+  DONE: 2,
+};
 
 const GallonOrderStatusEnum = new GraphQLEnumType({
   name: "GallonOrderStatusEnum",
@@ -15,13 +22,17 @@ const GallonOrderStatusEnum = new GraphQLEnumType({
 });
 
 const GallonOrderType = new GraphQLObjectType({
-  name: "gallon_order",
+  name: "GallonOrderType",
   fields: () => ({
-    id: { type: new GraphQLNonNull(GraphQLInt) },
-    gallonId: { type: new GraphQLNonNull(GraphQLInt) },
-    userId: { type: new GraphQLNonNull(GraphQLInt) },
+    id: { type: new GraphQLNonNull(GraphQLID) },
+    gallonId: { type: new GraphQLNonNull(GraphQLID) },
+    userId: { type: new GraphQLNonNull(GraphQLID) },
     status: { type: new GraphQLNonNull(GallonOrderStatusEnum) },
   }),
 });
 
-module.exports = { GallonOrderType, GallonOrderStatusEnum };
+module.exports = {
+  GallonOrderType,
+  GallonOrderStatusEnum,
+  GALLONORDER_STATUS_ENUM,
+};

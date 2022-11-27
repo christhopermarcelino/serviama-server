@@ -70,15 +70,10 @@ model GallonOrder {
   id       String @id @default(auto()) @map("_id") @db.ObjectId
   userId   String @db.ObjectId
   gallonId String @db.ObjectId
+  status   Int
 
   user   User   @relation(fields: [userId], references: [id])
   gallon Gallon @relation(fields: [gallonId], references: [id])
 
   @@map("gallon_orders")
-}
-
-enum ComplainStatus {
-  WAITING
-  IN_PROGRESS
-  DONE
 }

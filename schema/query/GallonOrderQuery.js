@@ -1,30 +1,28 @@
-const { GraphQLList, GraphQLInt } = require("graphql");
+const { GraphQLList, GraphQLID } = require("graphql");
 
 const { GallonOrderType } = require("../typedef/GallonOrderType");
+const GallonOrderController = require("../../controller/GallonOrderController");
 
 const gallonOrders = {
+  name: "gallonOrders",
   type: new GraphQLList(GallonOrderType),
-  resolve: (parent, args) => {},
+  resolve: (parent, args) => {
+    return GallonOrderController.getAllGallonOrders();
+  },
 };
 
 const gallonOrderById = {
+  name: "gallonOrderById",
   type: GallonOrderType,
   args: {
-    id: { type: GraphQLInt },
+    id: { type: GraphQLID },
   },
-  resolve: (parent, args) => {},
-};
-
-const gallonOrdersByUserId = {
-  type: new GraphQLList(GallonOrderType),
-  args: {
-    userId: { type: GraphQLInt },
+  resolve: (parent, args) => {
+    return GallonOrderController.getGallonOrderById(args.id);
   },
-  resolve: (parent, args) => {},
 };
 
 module.exports = {
   gallonOrders,
   gallonOrderById,
-  gallonOrdersByUserId,
 };
