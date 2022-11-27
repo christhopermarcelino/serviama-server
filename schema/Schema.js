@@ -2,11 +2,7 @@ const { GraphQLSchema, GraphQLObjectType } = require("graphql");
 
 const { users, user } = require("./query/UserQuery");
 const { gallons, gallon } = require("./query/GallonQuery");
-const {
-  gallonOrders,
-  gallonOrderById,
-  gallonOrdersByUserId,
-} = require("./query/GallonOrderQuery");
+const { gallonOrders, gallonOrderById } = require("./query/GallonOrderQuery");
 const { complains, complainById } = require("./query/ComplainQuery");
 const { packets, packetById, packetsByUserId } = require("./query/PacketQuery");
 
@@ -41,11 +37,10 @@ const rootQuery = new GraphQLObjectType({
   fields: {
     users,
     user,
-    // gallons,
-    // gallon,
-    // gallonOrders,
-    // gallonOrderById,
-    // gallonOrdersByUserId,
+    gallons,
+    gallon,
+    gallonOrders,
+    gallonOrderById,
     complains,
     complainById,
     // packets,
@@ -60,9 +55,9 @@ const rootMutation = new GraphQLObjectType({
     createUser,
     // updateUserById,
     // deleteUserById,
-    // createGallon,
-    // updateGallonById,
-    // deleteGallonById,
+    createGallon,
+    updateGallonById,
+    deleteGallonById,
     // createGallonOrder,
     // updateGallonOrderById,
     // deleteGallonOrderById,

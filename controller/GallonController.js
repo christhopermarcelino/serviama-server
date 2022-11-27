@@ -1,17 +1,29 @@
-const getGallonOrders = (req, res) => {};
+const GallonUseCase = require("../usecase/GallonUseCase");
 
-const getGallonOrderById = (req, res) => {};
+const getGallons = async () => {
+  return await GallonUseCase.getAllGallons();
+};
 
-const createGallonOrder = (req, res) => {};
+const getGallonById = async (id) => {
+  return await GallonUseCase.getGallonById(id);
+};
 
-const updateGallonOrderById = (req, res) => {};
+const createGallon = async ({ brand, stock }) => {
+  return GallonUseCase.createGallon({ brand, stock });
+};
 
-const deleteGallonOrderById = (req, res) => {};
+const updateGallonById = async ({ id, brand, stock }) => {
+  return GallonUseCase.updateGallonById({ id, brand, stock });
+};
+
+const deleteGallonById = async (id) => {
+  return await GallonUseCase.deleteGallonById(id);
+};
 
 module.exports = {
-  getGallonOrders,
-  getGallonOrderById,
-  createGallonOrder,
-  updateGallonOrderById,
-  deleteGallonOrderById,
+  getGallons,
+  getGallonById,
+  createGallon,
+  updateGallonById,
+  deleteGallonById,
 };
