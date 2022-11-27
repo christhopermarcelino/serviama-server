@@ -7,7 +7,7 @@ const {
 } = require("graphql");
 
 const GallonType = new GraphQLObjectType({
-  name: "gallon",
+  name: "GallonType",
   fields: () => ({
     id: { type: new GraphQLNonNull(GraphQLID) },
     brand: { type: new GraphQLNonNull(GraphQLString) },

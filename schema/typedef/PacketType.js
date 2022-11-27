@@ -15,7 +15,7 @@ const PacketStatusEnum = new GraphQLEnumType({
 });
 
 const PacketType = new GraphQLObjectType({
-  name: "packet",
+  name: "PacketType",
   fields: () => ({
     id: { type: new GraphQLNonNull(GraphQLInt) },
     arrived_time: { type: new GraphQLNonNull(GraphQLString) },

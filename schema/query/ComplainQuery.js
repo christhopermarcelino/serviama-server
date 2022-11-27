@@ -5,6 +5,7 @@ const { ComplainType } = require("../typedef/ComplainType");
 const ComplainController = require("../../controller/ComplainController");
 
 const complains = {
+  name: "complains",
   type: new GraphQLList(ComplainType),
   resolve: (parent, args) => {
     return ComplainController.getAllComplains();
@@ -12,6 +13,7 @@ const complains = {
 };
 
 const complainById = {
+  name: "complainById",
   type: ComplainType,
   args: {
     id: { type: new GraphQLNonNull(GraphQLID) },
