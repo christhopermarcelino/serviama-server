@@ -1,37 +1,63 @@
-const { GraphQLString, GraphQLNonNull, GraphQLInt } = require("graphql");
-const { ComplainStatusEnum } = require("../typedef/ComplainType");
-const UserType = require("../typedef/UserType");
+const {
+  GraphQLString,
+  GraphQLNonNull,
+  GraphQLInt,
+  GraphQLID,
+} = require("graphql");
+
+const { ComplainType, ComplainStatusEnum } = require("../typedef/ComplainType");
+
+const ComplainController = require("../../controller/ComplainController");
 
 const createComplain = {
   name: "createComplain",
-  type: UserType,
+  type: ComplainType,
   args: {
     title: { type: new GraphQLNonNull(GraphQLString) },
-    description: { type: new GraphQLNonNull(GraphQLString) },
-    userId: { type: new GraphQLNonNull(GraphQLInt) },
+    description: { type: GraphQLString },
+    userId: { type: new GraphQLNonNull(GraphQLID) },
   },
-  resolve: (parent, args) => {},
+  resolve: (_, args) => {
+    const { title, description, userId } = args;
+
+    return ComplainController.createComplain({
+      title,
+      description,
+      userId,
+    });
+  },
 };
 
 const updateComplainById = {
   name: "updateComplainById",
-  type: null,
+  type: ComplainType,
   args: {
-    id: { type: new GraphQLNonNull(GraphQLInt) },
+    id: { type: new GraphQLNonNull(GraphQLID) },
     title: { type: GraphQLString },
     description: { type: GraphQLString },
     status: { type: ComplainStatusEnum },
   },
-  resolve: (parent, args) => {},
+  resolve: (_, args) => {
+    const { id, title, description, status } = args;
+
+    return ComplainController.updateComplainById({
+      id,
+      title,
+      description,
+      status,
+    });
+  },
 };
 
 const deleteComplainById = {
   name: "deleteComplainById",
-  type: null,
+  type: ComplainType,
   args: {
-    id: { type: new GraphQLNonNull(GraphQLInt) },
+    id: { type: new GraphQLNonNull(GraphQLID) },
   },
-  resolve: (parent, args) => {},
+  resolve: (parent, args) => {
+    return ComplainController.deleteComplainById(args.id);
+  },
 };
 
 module.exports = { createComplain, updateComplainById, deleteComplainById };

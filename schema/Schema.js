@@ -7,16 +7,8 @@ const {
   gallonOrderById,
   gallonOrdersByUserId,
 } = require("./query/GallonOrderQuery");
-const {
-  complains,
-  complainById,
-  complainsByUserId,
-} = require("./query/ComplainQuery");
-const {
-  packets,
-  packetById,
-  packetsByUserId,
-} = require("./query/PacketQuery");
+const { complains, complainById } = require("./query/ComplainQuery");
+const { packets, packetById, packetsByUserId } = require("./query/PacketQuery");
 
 const {
   createUser,
@@ -54,9 +46,8 @@ const rootQuery = new GraphQLObjectType({
     // gallonOrders,
     // gallonOrderById,
     // gallonOrdersByUserId,
-    // complains,
-    // complainById,
-    // complainsByUserId,
+    complains,
+    complainById,
     // packets,
     // packetById,
     // packetsByUserId,
@@ -75,9 +66,9 @@ const rootMutation = new GraphQLObjectType({
     // createGallonOrder,
     // updateGallonOrderById,
     // deleteGallonOrderById,
-    // createComplain,
-    // updateComplainById,
-    // deleteComplainById,
+    createComplain,
+    updateComplainById,
+    deleteComplainById,
     // createPacket,
     // updatePacketById,
     // deletePacketById,

@@ -1,15 +1,36 @@
-const getComplains = (req, res) => {};
+const ComplainUseCase = require("../usecase/ComplainUseCase");
 
-const getComplainById = (req, res) => {};
+const getAllComplains = async () => {
+  return await ComplainUseCase.getAllComplains();
+};
 
-const createComplain = (req, res) => {};
+const getComplainById = async (id) => {
+  return await ComplainUseCase.getComplainById(id);
+};
 
-const updateComplainById = (req, res) => {};
+const createComplain = async ({ title, description, userId }) => {
+  return await ComplainUseCase.createComplain({
+    title,
+    description,
+    userId,
+  });
+};
 
-const deleteComplainById = (req, res) => {};
+const updateComplainById = async ({ id, title, description, status }) => {
+  return await ComplainUseCase.updateComplain({
+    id,
+    title,
+    description,
+    status,
+  });
+};
+
+const deleteComplainById = async (id) => {
+  return await ComplainUseCase.deleteComplainById(id);
+};
 
 module.exports = {
-  getComplains,
+  getAllComplains,
   getComplainById,
   createComplain,
   updateComplainById,
