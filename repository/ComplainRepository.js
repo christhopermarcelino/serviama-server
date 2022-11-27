@@ -68,7 +68,7 @@ const deleteComplainById = async (id) => {
 
     return deletedComplain;
   } catch (err) {
-    throw new APIErrorResponse(500, err.message);
+    throw new APIErrorResponse(500, "Error occured. Please try again.");
   }
 };
 
