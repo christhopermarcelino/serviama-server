@@ -2,9 +2,13 @@ const { GraphQLList, GraphQLInt } = require("graphql");
 
 const { PacketType } = require("../typedef/PacketType");
 
+const PacketController = require("../../controller/PacketController");
+
 const packets = {
   type: new GraphQLList(PacketType),
-  resolve: (parent, args) => {},
+  resolve: (parent, args) => {
+    return PacketController.getPackets();
+  },
 };
 
 const packetById = {
@@ -12,7 +16,9 @@ const packetById = {
   args: {
     id: { type: GraphQLInt },
   },
-  resolve: (parent, args) => {},
+  resolve: (parent, args) => {
+    return PacketController.getPacketById(args.id);
+  },
 };
 
 const packetsByUserId = {
@@ -20,7 +26,9 @@ const packetsByUserId = {
   args: {
     userId: { type: GraphQLInt },
   },
-  resolve: (parent, args) => {},
+  resolve: (parent, args) => {
+    return PacketController.getPacketsByUserId(args.userId);
+  },
 };
 
 module.exports = { packets, packetById, packetsByUserId };

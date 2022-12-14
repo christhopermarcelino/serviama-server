@@ -56,10 +56,11 @@ model Complain {
 }
 
 model Packet {
-  id     String @id @default(auto()) @map("_id") @db.ObjectId
-  brand  String
-  stock  Int    @default(0)
-  userId String @db.ObjectId
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  description String
+  status      Int
+  sender      String
+  userId      String @db.ObjectId
 
   user User @relation(fields: [userId], references: [id])
 

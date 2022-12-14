@@ -43,9 +43,9 @@ const rootQuery = new GraphQLObjectType({
     gallonOrderById,
     complains,
     complainById,
-    // packets,
-    // packetById,
-    // packetsByUserId,
+    packets,
+    packetById,
+    packetsByUserId,
   },
 });
 
@@ -64,9 +64,9 @@ const rootMutation = new GraphQLObjectType({
     createComplain,
     updateComplainById,
     deleteComplainById,
-    // createPacket,
-    // updatePacketById,
-    // deletePacketById,
+    createPacket,
+    updatePacketById,
+    deletePacketById,
   },
 });
 

@@ -4,7 +4,13 @@ const {
   GraphQLString,
   GraphQLEnumType,
   GraphQLNonNull,
+  GraphQLID,
 } = require("graphql");
+
+const PACKET_STATUS_ENUM = {
+  ARRIVED: 0,
+  TAKEN: 1,
+};
 
 const PacketStatusEnum = new GraphQLEnumType({
   name: "PacketStatusEnum",
@@ -18,12 +24,11 @@ const PacketType = new GraphQLObjectType({
   name: "PacketType",
   fields: () => ({
     id: { type: new GraphQLNonNull(GraphQLInt) },
-    arrived_time: { type: new GraphQLNonNull(GraphQLString) },
     description: { type: GraphQLString },
     status: { type: new GraphQLNonNull(PacketStatusEnum) },
     sender: { type: new GraphQLNonNull(GraphQLString) },
-    receiver: { type: new GraphQLNonNull(GraphQLString) },
+    userId: { type: new GraphQLNonNull(GraphQLID) },
   }),
 });
 
-module.exports = { PacketType, PacketStatusEnum };
+module.exports = { PacketType, PacketStatusEnum, PACKET_STATUS_ENUM };
