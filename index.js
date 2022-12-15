@@ -6,6 +6,7 @@ const { graphqlHTTP } = require("express-graphql");
 const PORT = process.env.PORT || 3001;
 
 const schema = require("./schema/Schema");
+const { authenticationMiddleware } = require("./middleware/AuthMiddleware");
 
 app.get("/", (req, res) => [
   res.json({
@@ -13,6 +14,8 @@ app.get("/", (req, res) => [
     message: "Serviama API",
   }),
 ]);
+
+app.use(authenticationMiddleware);
 
 app.use(
   "/graphql",
