@@ -39,6 +39,7 @@ const createComplain = async ({ title, description, status, userId }) => {
 
     return newComplain;
   } catch (err) {
+    console.log(err);
     throw new APIErrorResponse(500, "Error occured. Please try again.");
   }
 };

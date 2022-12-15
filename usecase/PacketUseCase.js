@@ -14,10 +14,10 @@ const getPacketsByUserId = async (userId) => {
   return await PacketModel.getPacketsByUserId(userId);
 };
 
-const createPacket = async ({ title, description, userId }) => {
+const createPacket = async ({ description, sender, userId }) => {
   const Packet = new PacketModel.Packet({
-    title,
     description,
+    sender,
     userId,
     status: PACKET_STATUS_ENUM.ARRIVED,
   });

@@ -11,10 +11,10 @@ function Packet({ title, description, status, sender }) {
 
 Packet.prototype.createPacket = async function () {
   return await PacketQuery.createPacket({
-    title: this.title,
     description: this.description,
-    status: this.status,
     sender: this.sender,
+    status: this.status,
+    userId: this.userId,
   });
 };
 

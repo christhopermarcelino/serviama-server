@@ -38,17 +38,20 @@ const getPacketsByUserId = async (userId) => {
   }
 };
 
-const createPacket = async ({ brand, stock }) => {
+const createPacket = async ({ description, sender, status, userId }) => {
   try {
     const newPacket = await prisma.packet.create({
       data: {
-        brand,
-        stock,
+        description,
+        sender,
+        status,
+        userId,
       },
     });
 
     return newPacket;
   } catch (err) {
+    console.log(err);
     throw new APIErrorResponse(500, "Error occured. Please try again.");
   }
 };

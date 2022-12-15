@@ -12,8 +12,8 @@ const getPacketsByUserId = async (userId) => {
   return await PacketUseCase.getPacketsByUserId(userId);
 };
 
-const createPacket = async ({ description, userId }) => {
-  return await PacketUseCase.createPacket({ description, userId });
+const createPacket = async ({ description, sender, userId }) => {
+  return await PacketUseCase.createPacket({ description, sender, userId });
 };
 
 const updatePacketById = async ({

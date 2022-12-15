@@ -10,6 +10,7 @@ const getAllUsers = async () => {
 
     return users;
   } catch (err) {
+    console.log(err);
     throw new APIErrorResponse(500, "Error occured. Please try again.");
   }
 };

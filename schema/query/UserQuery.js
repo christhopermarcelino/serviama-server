@@ -7,7 +7,9 @@ const { getAllUsers, getUserById } = require("../../controller/UserController");
 const users = {
   name: "users",
   type: new GraphQLList(UserType),
-  resolve: (parent, _) => getAllUsers(),
+  resolve: (parent, _) => {
+    return getAllUsers();
+  },
 };
 
 const user = {
@@ -16,7 +18,9 @@ const user = {
   args: {
     id: { type: new GraphQLNonNull(GraphQLID) },
   },
-  resolve: (_, args) => getUserById(args.id),
+  resolve: (_, args) => {
+    return getUserById(args.id);
+  },
 };
 
 module.exports = { users, user };
